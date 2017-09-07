@@ -17,8 +17,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+            <state relative-caret-position="34">
+              <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -263,7 +263,7 @@
       <option name="presentableId" value="Default" />
       <updated>1504800846411</updated>
       <workItem from="1504800847707" duration="48000" />
-      <workItem from="1504801058929" duration="489000" />
+      <workItem from="1504801058929" duration="1118000" />
     </task>
     <task id="LOCAL-00001" summary="added overlay.png to directory">
       <created>1504801111206</created>
@@ -279,11 +279,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504801504136</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ᕦ( ͡° ͜ʖ ͡°)ᕤ">
+      <created>1504801553579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1504801553579</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="537000" />
+    <option name="totallyTimeSpent" value="1166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="332" width="1784" height="638" extended-state="0" />
@@ -351,8 +358,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        <state relative-caret-position="34">
+          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
           <folding />
         </state>
       </provider>
