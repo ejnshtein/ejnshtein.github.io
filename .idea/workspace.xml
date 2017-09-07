@@ -37,8 +37,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ejnshtein/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+            <state relative-caret-position="34">
+              <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -263,7 +263,7 @@
       <option name="presentableId" value="Default" />
       <updated>1504800846411</updated>
       <workItem from="1504800847707" duration="48000" />
-      <workItem from="1504801058929" duration="1221000" />
+      <workItem from="1504801058929" duration="1304000" />
     </task>
     <task id="LOCAL-00001" summary="added overlay.png to directory">
       <created>1504801111206</created>
@@ -293,11 +293,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504802546918</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ᕦ( ͡° ͜ʖ ͡°)ᕤ">
+      <created>1504802647865</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1504802647865</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1269000" />
+    <option name="totallyTimeSpent" value="1352000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="332" width="1784" height="638" extended-state="0" />
@@ -365,8 +372,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ejnshtein/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        <state relative-caret-position="34">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
           <folding />
         </state>
       </provider>
