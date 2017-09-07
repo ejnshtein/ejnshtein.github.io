@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="851e6514-4447-4c1d-9ee2-ec0ce56393f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ejnshtein/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ejnshtein/js/script.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ejnshtein/font/bignoodletoo.ttf" afterPath="$PROJECT_DIR$/ejnshtein/css/font/bignoodletoo.ttf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
@@ -17,17 +14,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+            <state relative-caret-position="85">
+              <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ejnshtein/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
@@ -69,8 +66,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ejnshtein/css/style.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/ejnshtein/js/script.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -266,7 +263,7 @@
       <option name="presentableId" value="Default" />
       <updated>1504800846411</updated>
       <workItem from="1504800847707" duration="48000" />
-      <workItem from="1504801058929" duration="433000" />
+      <workItem from="1504801058929" duration="489000" />
     </task>
     <task id="LOCAL-00001" summary="added overlay.png to directory">
       <created>1504801111206</created>
@@ -275,11 +272,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504801111206</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ᕦ( ͡° ͜ʖ ͡°)ᕤ">
+      <created>1504801504136</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1504801504136</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481000" />
+    <option name="totallyTimeSpent" value="537000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="332" width="1784" height="638" extended-state="0" />
@@ -321,7 +325,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added overlay.png to directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="added overlay.png to directory" />
+    <MESSAGE value="ᕦ( ͡° ͜ʖ ͡°)ᕤ" />
+    <option name="LAST_COMMIT_MESSAGE" value="ᕦ( ͡° ͜ʖ ͡°)ᕤ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -336,18 +341,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ejnshtein/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
           <folding />
         </state>
       </provider>
