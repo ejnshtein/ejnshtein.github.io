@@ -2,68 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <!--<script src="/ClockScript.js"></script>
-    <script src="/YTsubs.js"></script>
-    <link rel='stylesheet' type="text/css" href='/style.css' />-->
+    <script src="../ejnshtien/js/script.js"></script>
+    <link rel='stylesheet' type="text/css" href='..ejnshtein/css/style.css' />
   </head>
   <body onload="startClocks(); subs(); subsT();">
-<style>
-    @font-face {
-    font-family: Bignoodletoo;
-    src: url(../ejnshtein/font/bignoodletoo.ttf);
-    font-style: normal;
-}
-body {
-    background-image:url(../ejnshtein/img/overlay.png);
-    background-repeat: no-repeat;
-}
-.cont {
-    margin-left: +52px;
-    margin-top: +16px;
-    width: 100%;
-    height: 100%;
-}
-#Time {
-    margin-top: +0px;
-    margin-left: +42px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-family: Bignoodletoo;
-    font-size: 15.5pt;
-    color: yellow;
-}
-#Date {
-    margin-top: +0px;
-    margin-left: +0px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-family: Bignoodletoo;
-    font-size: 15.5pt;
-    color: yellow;
-}
-#Subs {
-    top: +9px;
-    left: +20px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-family: Bignoodletoo;
-    font-size: 16.5pt;
-    color: yellow;
-}
-#TSubs {
-    top: +24px;
-    left: +12px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-family: Bignoodletoo;
-    font-size: 16pt;
-    color: yellow;
-}
-</style>
   <div class="cont">
         <a id="Date" align="left">00.00.00</a>
         <a id="Time" align="left">00:00:00</a>
@@ -74,76 +16,5 @@ body {
         <a id="TSubs" align="left">00</a>
     </div>
   </div>
-<script>
-    function startClocks() {
-    var todayDate = new Date(); 
-    var Hours = todayDate.getHours();
-    var Minutes = todayDate.getMinutes();
-  //var Seconds = todayDate.getSeconds();
-    var Day = todayDate.getDate();
-    var Month = todayDate.getMonth();
-    var Year = todayDate.getFullYear();
-    var Hours = AddZero(Hours);
-    var Minutes = AddZero(Minutes);
-  //var Seconds = AddZero(Seconds);
-    var Day = AddZero(Day);
-    var Month = AddZero(Month);
-    var Year = AddZero(Year);  
-    document.getElementById('Time').innerHTML = Hours + ":" + Minutes /* + ':' + Seconds */ ;
-    document.getElementById('Date').innerHTML = Year + "." + Month + "." + Day;
-    var UpdateTime = setTimeout(startClocks, 1000);
-}
-function AddZero(Num) {
-    if (Num < 10) {Num = "0" + Num} return Num;
-}
-// Сдесь редактирование файла ('' - обязательны)
-
-var channelId = 'UCZfvLX7vf4rSd8OJFujgvSg'
-var apiKey = 'AIzaSyBk8xION30TEINPmWFPsYJXFxyMd51ZvBY'
-
-// Конец редактирования
-
-function startSubs(content){
-    document.getElementById("Subs").innerHTML = content;
-};
-function subs(){
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        var myObj = {};
-        if (this.responseText) {
-            myObj = JSON.parse(this.responseText);
-        }
-        if (Object.keys(myObj).indexOf("items") !== -1) {
-            startSubs(myObj.items[0].statistics.subscriberCount)
-        }
-    }
-    /*var json = ('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC78KNqhC4SZ0oHsnTF9erAA&key=AIzaSyCX3i8Sk6XKyuNnILPi9D6PxwXHxr9wP9M');*/
-    var json = ('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + channelId + '&key=' + apiKey);
-    xmlhttp.open("GET", json, true);
-    xmlhttp.send();
-    var UpdateTime = setTimeout(subs, 1000);
-};
-function startSubsT(content){
-    document.getElementById("TSubs").innerHTML = content;
-};
-
-function subsT(){
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        var myObj = {};
-        if (this.responseText) {
-            myObj = JSON.parse(this.responseText);
-        }
-        if (Object.keys(myObj).indexOf("_total") !== -1) {
-            startSubsT(myObj._total)
-        }
-    }
-    var json = ('https://api.twitch.tv/kraken/channels/florictwitch/follows?client_id=s28lwjbid3b8ihhw22r7s1q2o0bjxz');
-    xmlhttp.open("GET", json, true);
-    xmlhttp.send();
-    var UpdateTime = setTimeout(subs, 1000);
-};
-</script>
-
 </body>
 </html>
