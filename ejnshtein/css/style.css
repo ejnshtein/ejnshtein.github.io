@@ -9,33 +9,13 @@ body {
 }
 .cont {
     margin-left: +52px;
-    margin-top: +16px;
+    margin-top: +10px;
     width: 100%;
     height: 100%;
-}
-#Time {
-    margin-top: +0px;
-    margin-left: +42px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-family: Bignoodletoo;
-    font-size: 15.5pt;
-    color: yellow;
-}
-#Date {
-    margin-top: +0px;
-    margin-left: +0px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    font-family: Bignoodletoo;
-    font-size: 15.5pt;
-    color: yellow;
 }
 #Subs {
-    top: +9px;
-    left: +20px;
+    top: +8px;
+    left: +21px;
     width: 100%;
     height: 100%;
     position: relative;
@@ -44,8 +24,8 @@ body {
     color: yellow;
 }
 #TSubs {
-    top: +24px;
-    left: +12px;
+    top: +11px;
+    left: +67px;
     width: 100%;
     height: 100%;
     position: relative;
