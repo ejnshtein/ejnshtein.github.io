@@ -25,7 +25,7 @@ function AddZero(Num) {
 
 var channelId = 'UCZfvLX7vf4rSd8OJFujgvSg' // For Youtube
 var apiKey = 'AIzaSyBk8xION30TEINPmWFPsYJXFxyMd51ZvBY' // Also for YouTube
-var channelIdtw = 'florictwitch' // For Twitch
+var channelIdtw = '104796939' // For Twitch
 var apiKeytw = 's28lwjbid3b8ihhw22r7s1q2o0bjxz' // Also for Twitch
 
 // Конец редактирования
