@@ -40,7 +40,7 @@ function start(){
             if (this.responseText) {
                 myObj = JSON.parse(this.responseText);
             }
-            if (Object.keys(myObj).indexOf("_total") !== undefined) {
+            if (Object.keys(myObj).indexOf("_total") !== -1) {
                 startSubsT(myObj._total)
             }
         }
