@@ -26,7 +26,7 @@ function start(){
         var json = ('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + channelId + '&key=' + apiKey);
         xmlhttp.open("GET", json, true);
         xmlhttp.send();
-        var UpdateTime = setTimeout(subs, 1000);
+        var UpdateTime = setTimeout(subs, 10000);
     };
     subs();
     function startSubsT(content){
@@ -47,7 +47,7 @@ function start(){
         var json = ('https://api.twitch.tv/kraken/channels/'+ channelIdtw + '/follows?client_id=' + apiKeytw);
         xmlhttp.open("GET", json, true);
         xmlhttp.send();
-        var UpdateTime = setTimeout(subs, 10000);
+        var UpdateTime = setTimeout(subsT, 10000);
     };
     subsT();
 }
