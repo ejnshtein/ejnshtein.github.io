@@ -16,8 +16,8 @@ function subs() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         var myObj = {};
-        if (this.response) {
-            myObj = JSON.parse(this.response);
+        if (this.responseText) {
+            myObj = JSON.parse(this.responseText);
         }
         if (Object.keys(myObj).indexOf("items") !== -1) {
             startSubs(myObj.items[0].statistics.subscriberCount)
@@ -26,30 +26,30 @@ function subs() {
     var json = ('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + channelId + '&key=' + apiKey);
     xmlhttp.open("GET", json, true);
     xmlhttp.send();
-};
+}
 
 function startSubsT(content) {
     document.getElementById("TSubs").innerHTML = content;
-};
+}
 
 function subsT() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         var myObj = {};
-        if (this.response) {
-            myObj = JSON.parse(this.response);
+        if (this.responseText) {
+            myObj = JSON.parse(this.responseText);
         }
         if (Object.keys(myObj).indexOf("_total") !== -1) {
             startSubsT(myObj._total)
         }
     }
-    var json = ('https://api.twitch.tv/kraken/channels/' + channelIdtw + '/follows?client_id=' + apiKeytw)
-    xmlhttp.open("GET", json, true)
-    xmlhttp.send()
-};
-subsT()
+    var json = ('https://api.twitch.tv/kraken/channels/' + channelIdtw + '/follows?client_id=' + apiKeytw);
+    xmlhttp.open("GET", json, true);
+    xmlhttp.send();
+}
 subs()
-setInterval(() => {
+subsT()
+setInterval(()=>{
     subs()
     subsT()
-}, 10000)
+},10000)
