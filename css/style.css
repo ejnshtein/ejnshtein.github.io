@@ -16,17 +16,16 @@ body {
 }
 .main div {
     padding: 3px;
-    background:#b7b7b7;
+    background:rgba(197, 193, 193, 0.85);
     position: relative;
 }
 .main div:nth-child(1){
-    width: 100px
+    width: 90px;
+    border-bottom-right-radius: 10px
 }
 .main div:nth-child(2){
     width: 70px;
-}
-.main div:nth-child(3){
-    width: 70px
+    border-bottom-right-radius: 10px
 }
 .vk a:first-of-type{
     color: #3970b8;
