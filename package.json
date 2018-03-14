@@ -1,0 +1,19 @@
+{
+  "name": "ejnshtein.github.io",
+  "version": "0.0.2",
+  "description": "overlay for stream for floric",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejnshtein/ejnshtein.github.io.git"
+  },
+  "author": "ejnshtein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejnshtein/ejnshtein.github.io/issues"
+  },
+  "homepage": "https://github.com/ejnshtein/ejnshtein.github.io#readme"
+}

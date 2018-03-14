@@ -4,32 +4,36 @@
     font-style: normal;
 }
 body {
-    background-image:url(../img/overlay.png);
-    background-repeat: no-repeat;
-}
-.cont {
-    margin-left: +52px;
-    margin-top: +10px;
-    width: 100%;
-    height: 100%;
-}
-#Subs {
-    top: +8px;
-    left: +21px;
-    width: 100%;
-    height: 100%;
-    position: relative;
     font-family: Bignoodletoo;
-    font-size: 16.5pt;
-    color: yellow;
+    font-weight: 500;
+    font-size: 14pt;
+    padding: 0;
+    margin: 0
 }
-#TSubs {
-    top: +11px;
-    left: +67px;
-    width: 100%;
-    height: 100%;
+
+.main {
+    display: block
+}
+.main div {
+    padding: 3px;
+    background:#b7b7b7;
     position: relative;
-    font-family: Bignoodletoo;
-    font-size: 16pt;
-    color: yellow;
+}
+.main div:nth-child(1){
+    width: 100px
+}
+.main div:nth-child(2){
+    width: 70px;
+}
+.main div:nth-child(3){
+    width: 70px
+}
+.vk a:first-of-type{
+    color: #3970b8;
+}
+.youtube a:first-of-type{
+    color: #ff0000;
+}
+.twitch a:first-of-type{
+    color: #4800cc;
 }
