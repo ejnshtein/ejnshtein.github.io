@@ -1,4 +1,4 @@
-# [ejnshtein.github.io](ejnshtein.github.io)
+# ejnshtein.github.io
 ## What is this?  
 It's an overlay for stream via [OBS](https://obsproject.com/).
 Working from browser source
