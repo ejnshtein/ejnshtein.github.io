@@ -14,9 +14,11 @@ body {
 .main {
     display: block
 }
+.serv {
+    background:rgba(197, 193, 193, 0.85);
+}
 .main div {
     padding: 3px;
-    background:rgba(197, 193, 193, 0.85);
     position: relative;
 }
 .main div:nth-child(1){
