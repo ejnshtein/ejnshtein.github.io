@@ -65,7 +65,12 @@ function setData(type, content) {
         document.getElementById('social').appendChild(block)
     }
 }
-
+if (networks.yt.channel && networks.yt.key){
+    setData('yt',00)
+}
+if (networks.tw.channel && networks.tw.key){
+    setData('tw',00)
+}
 if (networks.tw.key == 'example' && networks.tw.channel == 'example') {
     setData('tw', randomNumbers(4))
 }
