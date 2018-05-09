@@ -26,7 +26,8 @@
 
 <body>
     <div class="main">
-        Put datas from platforms here
+        Put datas from platforms here OR
+        <button onclick=" generate(true)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Generate example</button>
         <div class="main">
             Youtube Channel ID
             <input type="text" placeholder="Youtube Channel ID" id="youtubeChannel">
@@ -62,50 +63,57 @@
     <script>
         new ClipboardJS('.copy');
 
-        function generate() {
-            let net = {
-                    yt: {
-                        channel: document.getElementById('youtubeChannel').value,
-                        key: document.getElementById('youtubeApi').value
-                    },
-                    tw: {
-                        channel: document.getElementById('twitchChannel').value,
-                        key: document.getElementById('twitchApi').value
-                    }
-                },
-                url = 'https://ejnshtein.github.io/overlay/?'
-            if ((net.yt.channel && net.yt.key) || (net.tw.channel && net.tw.key) || ((net.tw.channel && net.tw.key) &&
-                    (net.yt.channel && net.yt.key))) {
-                if (net.yt.channel && net.yt.key) {
-                    url += `youtubeChannelId=${net.yt.channel}&youtubeApiKey=${net.yt.key}&`
-                } else if (!net.yt.channel) {
-                    snac({
-                        message: 'Youtube Channel Id empty!'
-                    })
-                } else if (!net.yt.key) {
-                    snac({
-                        message: 'Youtube Api Key empty!'
-                    })
-                }
-                if (net.tw.channel && net.tw.key) {
-                    url += `twitchChannel=${net.tw.channel}&twitchApiKey=${net.tw.key}`
-                } else if (!net.tw.channel) {
-                    snac({
-                        message: 'Twitch Channel Name empty!'
-                    })
-                } else if (!net.tw.key) {
-                    snac({
-                        message: 'Twitch Api Key empty!'
-                    })
-                }
+        function generate(example) {
+            if (example) {
+                let url = 'https://ejnshtein.github.io/overlay/?youtubeChannelId=example&youtubeApiKey=example&twitchChannel=example&twitchApiKey=example'
                 document.getElementById('copy').removeAttribute('disabled')
-                document.getElementById('copy').setAttribute('data-clipboard-text', url)
+                document.getElementById('copy').setAttribute('data-clipboard-text', url )
                 document.getElementById('copyInput').value = url
             } else {
-                document.getElementById('copy').setAttribute('disabled', true)
-                snac({
-                    message: 'Empty!'
-                })
+                let net = {
+                        yt: {
+                            channel: document.getElementById('youtubeChannel').value,
+                            key: document.getElementById('youtubeApi').value
+                        },
+                        tw: {
+                            channel: document.getElementById('twitchChannel').value,
+                            key: document.getElementById('twitchApi').value
+                        }
+                    },
+                    url = 'https://ejnshtein.github.io/overlay/?'
+                if ((net.yt.channel && net.yt.key) || (net.tw.channel && net.tw.key) || ((net.tw.channel && net.tw.key) &&
+                        (net.yt.channel && net.yt.key))) {
+                    if (net.yt.channel && net.yt.key) {
+                        url += `youtubeChannelId=${net.yt.channel}&youtubeApiKey=${net.yt.key}&`
+                    } else if (!net.yt.channel) {
+                        snac({
+                            message: 'Youtube Channel Id empty!'
+                        })
+                    } else if (!net.yt.key) {
+                        snac({
+                            message: 'Youtube Api Key empty!'
+                        })
+                    }
+                    if (net.tw.channel && net.tw.key) {
+                        url += `twitchChannel=${net.tw.channel}&twitchApiKey=${net.tw.key}`
+                    } else if (!net.tw.channel) {
+                        snac({
+                            message: 'Twitch Channel Name empty!'
+                        })
+                    } else if (!net.tw.key) {
+                        snac({
+                            message: 'Twitch Api Key empty!'
+                        })
+                    }
+                    document.getElementById('copy').removeAttribute('disabled')
+                    document.getElementById('copy').setAttribute('data-clipboard-text', url)
+                    document.getElementById('copyInput').value = url
+                } else {
+                    document.getElementById('copy').setAttribute('disabled', true)
+                    snac({
+                        message: 'Empty!'
+                    })
+                }
             }
         }
 
