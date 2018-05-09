@@ -4,7 +4,7 @@ It's simple overlay for your stream using obs or other streaming software with b
 ## Where I can see how it looks?
 Soon.
 ## Installation
-Follow instruction on this page (soon)
+Follow instruction on this [page](https://ejnshtein.github.io/generator)
 ### Variables
 | Variable | Description |
 | - | - |
