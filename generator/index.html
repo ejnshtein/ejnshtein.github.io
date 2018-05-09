@@ -50,6 +50,9 @@
             <button disabled onclick="" id=copy class="copy mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                 Copy url
             </button>
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" disabled type="text" id="copyInput">
+            </div>
         </div>
     </div>
     <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
@@ -97,8 +100,9 @@
                 }
                 document.getElementById('copy').removeAttribute('disabled')
                 document.getElementById('copy').setAttribute('data-clipboard-text', url)
+                document.getElementById('copyInput').value = url
             } else {
-                document.getElementById('copy').setAttribute('disabled',true)
+                document.getElementById('copy').setAttribute('disabled', true)
                 snac({
                     message: 'Empty!'
                 })

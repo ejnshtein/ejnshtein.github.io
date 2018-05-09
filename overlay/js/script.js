@@ -66,11 +66,17 @@ function setData(type, content) {
     }
 }
 
+if (networks.tw.key == 'example' && networks.tw.channel == 'example') {
+    setData('tw', randomNumbers(4))
+}
+
 function subscriberYoutube() { // Full by me ( ͡° ͜ʖ ͡°)
-    let json = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${networks.yt.channel}&key=${networks.yt.key}`
     if (!networks.yt.channel || !networks.yt.key) return
+    if (networks.tw.key == 'example' && networks.tw.channel == 'example') {
+        return setData('yt', randomNumbers(4))
+    }
     request({
-            url: json
+            url: `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${networks.yt.channel}&key=${networks.yt.key}`
         }).then(res => {
             if (res != undefined && res.items != undefined) {
                 setData('yt', res.items[0].statistics.subscriberCount)
@@ -81,6 +87,9 @@ function subscriberYoutube() { // Full by me ( ͡° ͜ʖ ͡°)
 
 function subscribersTwitch() { // ᕦ( ͡° ͜ʖ ͡°)ᕤ
     if (!networks.tw.channel || !networks.tw.key) return
+    if (networks.tw.key == 'example' && networks.tw.channel == 'example') {
+        return setData('tw', randomNumbers(4))
+    }
     request({
             url: `https://api.twitch.tv/helix/users?login=${networks.tw.channel}`,
             header: {
@@ -91,17 +100,17 @@ function subscribersTwitch() { // ᕦ( ͡° ͜ʖ ͡°)ᕤ
         .then(res => {
             if (res != undefined) {
                 request({
-                    url: `https://api.twitch.tv/helix/users/follows?to_id=${res.data[0].id}`,
-                    header: {
-                        name: 'Client-ID',
-                        value: networks.tw.key
-                    }
-                }).then(subs => {
-                    if (subs && subs.total){
-                        setData('tw', subs.total)
-                    }
-                })
-                .catch(err => console.error(err))
+                        url: `https://api.twitch.tv/helix/users/follows?to_id=${res.data[0].id}`,
+                        header: {
+                            name: 'Client-ID',
+                            value: networks.tw.key
+                        }
+                    }).then(subs => {
+                        if (subs && subs.total) {
+                            setData('tw', subs.total)
+                        }
+                    })
+                    .catch(err => console.error(err))
             }
         })
         .catch(err => console.error(err))
@@ -133,4 +142,13 @@ function request(data) {
         }
         xmlhttp.send()
     })
+}
+
+function randomNumbers(range) {
+    let text = "",
+        possible = "0123456789"
+    for (let i = 0; i < document.getElementById('range').value; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return text
 }

@@ -4,7 +4,7 @@ It's simple overlay for your stream using obs or other streaming software with b
 ## Where I can see how it looks?
 Soon.
 ## Installation
-Follow instruction on this [page](https://ejnshtein.github.io/generator/)
+Follow instruction on this page (soon)
 ### Variables
 | Variable | Description |
 | - | - |
@@ -14,8 +14,9 @@ Follow instruction on this [page](https://ejnshtein.github.io/generator/)
 | `twitchApiKey` | Twitch app Client ID from [Twitch Developer Console](https://glass.twitch.tv)  |
 
 ### Why?
-
 idk
 
+### Okay, can i create separated pages for youtube and twitch?
+Ofcourse. Just fill credentials ONLY for twitch or ONLY for youtube, and generator will create url with working overlay.
 ### Contact
 [Telegram](https://t.me/ejnshtein) or by [mail](mailto:ejnshtein@dsgstng.com)
