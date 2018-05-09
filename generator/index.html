@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ejnshtein.github.io url generator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <style>
+        .main {
+            background-color: white;
+            margin-top: 10px;
+            padding: 10px;
+            position: relative;
+            box-sizing: border-box;
+            border-radius: 3px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            margin-left: .5em;
+            margin-right: .5em
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        Put datas from platforms here
+        <div class="main">
+            Youtube Channel ID
+            <input type="text" placeholder="Youtube Channel ID" id="youtubeChannel">
+        </div>
+        <div class="main">
+            Youtube Api Key
+            <input type="text" placeholder="Youtube Api Key" id="youtubeApi">
+        </div>
+        <div class="main">
+            Twitch Channel name
+            <input type="text" placeholder="Twitch Channel name" id="twitchChannel">
+        </div>
+        <div class="main">
+            Twitch Api Key
+            <input type="text" placeholder="Twitch Api Key" id="twitchApi">
+        </div>
+        <div class="main">
+            <button onclick="generate()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Generate url
+            </button>
+            <button disabled onclick="" id=copy class="copy mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Copy url
+            </button>
+        </div>
+    </div>
+    <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+    <script>
+        new ClipboardJS('.copy');
+
+        function generate() {
+            let net = {
+                    yt: {
+                        channel: document.getElementById('youtubeChannel').value,
+                        key: document.getElementById('youtubeApi').value
+                    },
+                    tw: {
+                        channel: document.getElementById('twitchChannel').value,
+                        key: document.getElementById('twitchApi').value
+                    }
+                },
+                url = 'https://ejnshtein.github.io/overlay/?'
+            if ((net.yt.channel && net.yt.key) || (net.tw.channel && net.tw.key) || ((net.tw.channel && net.tw.key) &&
+                    (net.yt.channel && net.yt.key))) {
+                if (net.yt.channel && net.yt.key) {
+                    url += `youtubeChannelId=${net.yt.channel}&youtubeApiKey=${net.yt.key}&`
+                } else if (!net.yt.channel) {
+                    snac({
+                        message: 'Youtube Channel Id empty!'
+                    })
+                } else if (!net.yt.key) {
+                    snac({
+                        message: 'Youtube Api Key empty!'
+                    })
+                }
+                if (net.tw.channel && net.tw.key) {
+                    url += `twitchChannel=${net.tw.channel}&twitchApiKey=${net.tw.key}`
+                } else if (!net.tw.channel) {
+                    snac({
+                        message: 'Twitch Channel Name empty!'
+                    })
+                } else if (!net.tw.key) {
+                    snac({
+                        message: 'Twitch Api Key empty!'
+                    })
+                }
+                document.getElementById('copy').removeAttribute('disabled')
+                document.getElementById('copy').setAttribute('data-clipboard-text', url)
+            } else {
+                document.getElementById('copy').setAttribute('disabled',true)
+                snac({
+                    message: 'Empty!'
+                })
+            }
+        }
+
+        function snac(data) {
+            document.getElementById('snackbar').MaterialSnackbar.showSnackbar({
+                message: data.message,
+                timeout: data.timeout || 4000
+            });
+        }
+    </script>
+</body>
+
+</html>
