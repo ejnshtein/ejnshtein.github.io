@@ -147,7 +147,7 @@ function request(data) {
 function randomNumbers(range) {
     let text = "",
         possible = "0123456789"
-    for (let i = 0; i < document.getElementById('range').value; i++) {
+    for (let i = 0; i < range; i++) {
         text += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     return text
