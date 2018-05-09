@@ -1,6 +1,6 @@
 {
   "name": "ejnshtein.github.io",
-  "version": "0.0.2b",
+  "version": "0.0.3",
   "description": "overlay for stream for floric",
   "main": "index.js",
   "scripts": {

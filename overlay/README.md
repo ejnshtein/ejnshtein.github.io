@@ -1,6 +1,21 @@
-# ejnshtein.github.io
+# overlay for obs 
 ## What is this?  
-It's an overlay for stream via [OBS](https://obsproject.com/).
-Working from browser source
+It's simple overlay for your stream using obs or other streaming software with browser source support.  
+## Where I can see how it looks?
+Soon.
 ## Installation
-Not needed. Just open ur browsersource in obs https://ejnshtein.github.io/overlay/?channelId=channelid&apiKey=apikey&channelIdtw=twitchchannel&apiKeytw=apikeytwitch aaaaaaannnnnnnnnnnnnnnnd soon i'll done this readme
+Follow instruction on this page (soon)
+### Variables
+| Variable | Description |
+| - | - |
+| `youtubeChannelId` | Your [Youtube channel ID](https://www.youtube.com/account_advanced) |
+| `youtubeApiKey` | API token form [Google developer console](https://console.developers.google.com/) (Section Youtube Data API v3 |
+| `twitchChannel`| Your Twitch channel name, for example **ejnshtein** |
+| `twitchApiKey` | Twitch app Client ID from [Twitch Developer Console](https://glass.twitch.tv)  |
+
+### Why?
+
+idk
+
+### Contact
+[Telegram](https://t.me/ejnshtein) or by [mail](mailto:ejnshtein@dsgstng.com)

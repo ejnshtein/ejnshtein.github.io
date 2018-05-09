@@ -1,40 +1,31 @@
-@font-face {
-    font-family: Bignoodletoo;
-    src: url(./bignoodletoo.ttf);
-    font-style: normal;
-}
 body {
-    font-family: Bignoodletoo;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     font-size: 14pt;
     padding: 0;
     margin: 0
 }
-
-.main {
-    display: block
+#social {
+    position: absolute;
+    left: 0;
+    top: 0;
 }
-.serv {
-    background:rgba(197, 193, 193, 0.85);
-}
-.main div {
-    padding: 3px;
-    position: relative;
-}
-.main div:nth-child(1){
-    width: 90px;
-    border-bottom-right-radius: 10px
-}
-.main div:nth-child(2){
-    width: 70px;
-    border-bottom-right-radius: 10px
-}
-.vk a:first-of-type{
+.vk {
     color: #3970b8;
 }
-.youtube a:first-of-type{
+.yt {
     color: #ff0000;
 }
-.twitch a:first-of-type{
+.tw {
     color: #4800cc;
+}
+.main {
+    color: white;
+    padding: 3px;
+    padding-right: 5px;
+    position: relative;
+    width: fit-content;
+    background: #6a6868de;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
 }
