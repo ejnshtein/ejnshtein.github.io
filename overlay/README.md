@@ -8,10 +8,10 @@ Follow instruction on this page (soon)
 ### Variables
 | Variable | Description |
 | - | - |
-| `youtubeChannelId` | Your [Youtube channel ID](https://www.youtube.com/account_advanced) |
-| `youtubeApiKey` | API token form [Google developer console](https://console.developers.google.com/) (Section Youtube Data API v3 |
-| `twitchChannel`| Your Twitch channel name, for example **ejnshtein** |
-| `twitchApiKey` | Twitch app Client ID from [Twitch Developer Console](https://glass.twitch.tv)  |
+| `Youtube Channel Id` | Your [Youtube channel ID](https://www.youtube.com/account_advanced) |
+| `Youtube Api Key` | API token form [Google developer console](https://console.developers.google.com/) (Section Youtube Data API v3 |
+| `Twitch Channel`| Your Twitch channel name, for example **ejnshtein** |
+| `Twitch Api Key` | Twitch app Client ID from [Twitch Developer Console](https://glass.twitch.tv)  |
 
 ### Why?
 idk
