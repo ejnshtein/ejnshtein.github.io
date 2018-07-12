@@ -9,7 +9,7 @@ Follow instruction on this [page](https://ejnshtein.github.io/overlay/generator)
 | Variable | Description |
 | - | - |
 | `Youtube Channel Id` | Your [Youtube channel ID](https://www.youtube.com/account_advanced) |
-| `Youtube Api Key` | API token form [Google developer console](https://console.developers.google.com/) (Section Youtube Data API v3 |
+| `Youtube Api Key` | API token form [Google developer console](https://console.developers.google.com/) (Section Youtube Data API v3) |
 | `Twitch Channel`| Your Twitch channel name, for example **ejnshtein** |
 | `Twitch Api Key` | Twitch app Client ID from [Twitch Developer Console](https://glass.twitch.tv)  |
 

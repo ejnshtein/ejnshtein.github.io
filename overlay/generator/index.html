@@ -9,49 +9,88 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <style>
         .main {
-            background-color: white;
-            margin-top: 10px;
+            color: var(--white-color, #000);
+            background-color: var(--transparent-dark-background, #ecececb8);
             padding: 10px;
+            min-height: 44px;
             position: relative;
             box-sizing: border-box;
-            border-radius: 3px;
+            border-radius: 4px;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-            margin-left: .5em;
-            margin-right: .5em
+        }
+
+        #main div:not(:last-of-type) {
+            margin-bottom: 12px;
+        }
+
+        html {
+            background-color: var(--transparent-dark-background, #ecececb8);
         }
     </style>
 </head>
 
 <body>
     <div class="main">
-        Put datas from platforms here OR
-        <button onclick=" generate(true)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Generate example</button>
-        <div class="main">
-            Youtube Channel ID
-            <input type="text" placeholder="Youtube Channel ID" id="youtubeChannel">
-        </div>
-        <div class="main">
-            Youtube Api Key
-            <input type="text" placeholder="Youtube Api Key" id="youtubeApi">
-        </div>
-        <div class="main">
-            Twitch Channel name
-            <input type="text" placeholder="Twitch Channel name" id="twitchChannel">
-        </div>
-        <div class="main">
-            Twitch Api Key
-            <input type="text" placeholder="Twitch Api Key" id="twitchApi">
-        </div>
-        <button onclick="generate()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Generate url
-        </button>
-        <button disabled onclick="" id=copy class="copy mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Copy url
-        </button>
-        <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" disabled type="text" id="copyInput">
+        Put datas from platforms here OR   
+        <button onclick="generate(true)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Generate example</button>
+        <div id=main class="main">
+
+            <div class="main">
+                Choose direction (default: top/left)
+                <input list="direction" id="direct" />
+                <datalist id="direction">
+                    <option value="top/left"></option>
+                    <option value="top/right"></option>
+                    <option value="bottom/left"></option>
+                    <option value="bottom/right"></option>
+                </datalist>
+            </div>
+            <div class="main">
+                    Choose theme (default: light)
+                    <input list="themes" id="them"/>
+                    <datalist id="themes">
+                        <option value="light"></option>
+                        <option value="dark"></option>
+                    </datalist>
+            </div>
+            <div class="main">
+                <div>
+                    Youtube Channel ID
+                    <input type="text" placeholder="Youtube Channel ID" id="youtubeChannel">
+                </div>
+                <div>
+                    Youtube Api Key
+                    <input type="text" placeholder="Youtube Api Key" id="youtubeApi">
+                </div>
+            </div>
+            <div class="main">
+                <div>
+                    Twitch Channel name
+                    <input type="text" placeholder="Twitch Channel name" id="twitchChannel">
+                </div>
+                <div>
+                    Twitch Api Key
+                    <input type="text" placeholder="Twitch Api Key" id="twitchApi">
+                </div>
+                <div>
+                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="twitchCheckFollows">
+                        <input type="checkbox" id="twitchCheckFollows" class="mdl-switch__input">
+                        <span class="mdl-switch__label">Turn on followers alert for Twitch?</span>
+                    </label>
+                </div>
+            </div>
+            <button onclick="generate()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Generate url
+            </button>
+            <button disabled onclick="" id=copy class="copy mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                Copy url
+            </button>
+            <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
+                <input class="mdl-textfield__input" disabled type="text" id="copyInput">
+            </div>
         </div>
     </div>
     <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
@@ -63,27 +102,26 @@
 
         function generate(example) {
             if (example) {
-                let url =
-                    'https://ejnshtein.github.io/overlay/?youtubeChannelId=example&youtubeApiKey=example&twitchChannel=example&twitchApiKey=example'
-                document.getElementById('copy').removeAttribute('disabled')
-                document.getElementById('copy').setAttribute('data-clipboard-text', url)
-                document.getElementById('copyInput').value = url
+                let url = 'https://ejnshtein.github.io/overlay/?ytc=example&ytk=example&twc=example&twk=example&th=light'
+                document.querySelector('#copy').removeAttribute('disabled')
+                document.querySelector('#copy').setAttribute('data-clipboard-text', url)
+                document.querySelector('#copyInput').value = url
             } else {
                 let net = {
                         yt: {
-                            channel: document.getElementById('youtubeChannel').value,
-                            key: document.getElementById('youtubeApi').value
+                            channel: document.querySelector('#youtubeChannel').value,
+                            key: document.querySelector('#youtubeApi').value
                         },
                         tw: {
-                            channel: document.getElementById('twitchChannel').value,
-                            key: document.getElementById('twitchApi').value
+                            channel: document.querySelector('#twitchChannel').value,
+                            key: document.querySelector('#twitchApi').value
                         }
                     },
                     url = 'https://ejnshtein.github.io/overlay/?'
                 if ((net.yt.channel && net.yt.key) || (net.tw.channel && net.tw.key) || ((net.tw.channel && net.tw.key) &&
                         (net.yt.channel && net.yt.key))) {
                     if (net.yt.channel && net.yt.key) {
-                        url += `youtubeChannelId=${net.yt.channel}&youtubeApiKey=${net.yt.key}&`
+                        url += `ytc=${net.yt.channel}&ytk=${net.yt.key}&`
                     } else if (!net.yt.channel) {
                         snac({
                             message: 'Youtube Channel Id empty!'
@@ -94,7 +132,7 @@
                         })
                     }
                     if (net.tw.channel && net.tw.key) {
-                        url += `twitchChannel=${net.tw.channel}&twitchApiKey=${net.tw.key}`
+                        url += `twc=${net.tw.channel}&twk=${net.tw.key}&`
                     } else if (!net.tw.channel) {
                         snac({
                             message: 'Twitch Channel Name empty!'
@@ -104,11 +142,16 @@
                             message: 'Twitch Api Key empty!'
                         })
                     }
-                    document.getElementById('copy').removeAttribute('disabled')
-                    document.getElementById('copy').setAttribute('data-clipboard-text', url)
-                    document.getElementById('copyInput').value = url
+                    if (document.querySelector('#twitchCheckFollows').checked) {
+                        url += 'tws=true&'
+                    }
+                    url += `dir=${document.querySelector('#direct').value ? document.querySelector('#direct').value : 'top/left'}&`
+                    url += `th=${document.querySelector('#them').value ? document.querySelector('#them').value : 'ligth'}&`
+                    document.querySelector('#copy').removeAttribute('disabled')
+                    document.querySelector('#copy').setAttribute('data-clipboard-text', url)
+                    document.querySelector('#copyInput').value = url
                 } else {
-                    document.getElementById('copy').setAttribute('disabled', true)
+                    document.querySelector('#copy').setAttribute('disabled', true)
                     snac({
                         message: 'Empty!'
                     })
