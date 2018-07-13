@@ -21,8 +21,12 @@ let yt = {
         key: urlParams('twk') || urlParams('twitchApiKey'),
         channel: urlParams('twc') || urlParams('twitchChannel'),
         allowSubs: !!urlParams('tws'),
-        subs: []
+        subs: {
+            array: [],
+            history: []
+        }
     },
+    startTime = Date.now(),
     types = function (type) {
         let t
         switch (type) {
@@ -145,7 +149,7 @@ function subscribersTwitch() {
         .then(res => {
             if (res != undefined) {
                 request({
-                        url: `https://api.twitch.tv/helix/users/follows?to_id=${res.data[0].id}`,
+                        url: `https://api.twitch.tv/helix/users/follows?to_id=${res.data[0].id}&`,
                         header: [{
                             name: 'Client-ID',
                             value: tw.key
@@ -156,26 +160,20 @@ function subscribersTwitch() {
                             setData('tw', subs.total)
                         }
                         if (tw.allowSubs) {
-                            if (!tw.subs.length) {
-                                tw.subs = subs.data
-                            } else {
-                                if (tw.subs.length < subs.data.length) {
-                                    request({
-                                        url: `https://api.twitch.tv/helix/users?id=${subs.data[0].from_id}`,
-                                        header: [{
-                                            name: 'Client-ID',
-                                            value: tw.key
-                                        }]
-                                    }).then(data => {
-                                        let a = new MNotification({
-                                            body: `New follower - ${data.data[0].display_name}`,
-                                            time: 4000
-                                        })
-                                        a.display()
-                                    })
+                            let lastSubs = []
+                            // filter(sub => startTime < Date.parse(sub.followed_at))
+                            // filter(sub => {
+                            //     //console.log(startTime,startTime-30476269677, Date.parse(sub.followed_at))
+                            //     return startTime-30476269677 < Date.parse(sub.followed_at)
+                            // })
+                            subs.data.filter(sub => startTime < Date.parse(sub.followed_at)).forEach(sub => lastSubs.push(sub))
+                            //console.log(startTime,'lastsub:',lastSubs)
+                            lastSubs.forEach(sub => {
+                                if (!tw.subs.history.includes(sub.from_id)){
+                                    tw.subs.array.push(sub.from_id)
+                                    tw.subs.history.push(sub.from_id)
                                 }
-                                tw.subs = subs.data
-                            }
+                            })
                         }
                     })
                     .catch(console.error)
@@ -185,11 +183,28 @@ function subscribersTwitch() {
 }
 subscriberYoutube()
 subscribersTwitch()
-setInterval(function () {
-    subscriberYoutube()
-    subscribersTwitch()
-}, 10000)
-
+setInterval(subscriberYoutube,5000)
+setInterval(subscribersTwitch,10000) // api limit
+setInterval(function(){
+    if (tw.subs.array.length > 0){
+        let newSub = tw.subs.array.shift()
+        //console.log(newSub)
+        request({
+            url: `https://api.twitch.tv/helix/users?id=${newSub}`,
+            header: [{
+                name: 'Client-ID',
+                value: tw.key
+            }]
+        }).then(data => {
+            //console.log(data)
+            if (!data.data.length) return
+            new MNotification({
+                body: `New follower - ${data.data[0].display_name}`,
+                time: 5000
+            }).display()
+        })
+    }
+},7000)
 
 /**
  * @param {Object} opt 
