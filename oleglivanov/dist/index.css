@@ -1,0 +1,268 @@
+@media (min-width: 768px) {
+  .small-screen {
+    display: none !important; } }
+
+@media (max-width: 768px) {
+  .large-screen {
+    display: none !important; } }
+
+.mdl-layout__drawer-button {
+  background: transparent !important; }
+
+::-webkit-scrollbar {
+  width: 11px; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #009BDA;
+  border: #fff 1px solid;
+  border-right: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover {
+    widows: 14px; }
+
+.link {
+  font-weight: 500;
+  transition: all .1s ease-in-out;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 7px 5px;
+  margin-top: -7px;
+  margin: 0 5px; }
+  .link:not(:hover) {
+    background: transparent;
+    color: var(--white-color, #fff) !important; }
+  .link:hover:not(:hover) {
+    color: #fff !important;
+    background-color: initial; }
+  .link:hover:hover {
+    color: #009BDA !important;
+    background-color: #1f1f1fa8; }
+
+.button:not(:hover) {
+  color: #fff !important;
+  background-color: initial; }
+
+.button:hover {
+  color: #009BDA !important;
+  background-color: #1f1f1f; }
+
+.hidden {
+  display: none !important; }
+
+a {
+  text-decoration: none; }
+  a.simple-text {
+    cursor: pointer; }
+
+.main {
+  color: var(--white-color);
+  background-color: var(--dark-grey);
+  margin-top: 10px;
+  padding: 10px;
+  min-height: 44px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+main {
+  background-color: #008ec7 !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+footer {
+  background-color: #009BDA !important; }
+
+footer .mdl-logo {
+  border-right: #6e6e6e solid 2px;
+  padding: 0 20px; }
+
+@media screen and (max-width: 768px) {
+  .mdl-layout__header .mdl-layout__title {
+    display: flex;
+    align-items: center; }
+  .logo img {
+    height: 50px; } }
+
+@media screen and (min-width: 769px) {
+  .index-head .mdl-layout__title {
+    font-size: 20pt !important; }
+  .index-navigation {
+    margin-bottom: 10px; }
+  .logo img {
+    height: 100px; }
+  header.mdl-layout__header.is-compact .logo img {
+    height: 64px; } }
+
+@media screen and (max-width: 1024px) {
+  header {
+    background-image: url(./img/logo_banner.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 43%;
+    background-position-x: center; } }
+
+@media screen and (min-width: 1025px) {
+  header.mdl-layout__header:not(.is-compact) {
+    padding-top: 150px; }
+  header {
+    background-image: url(./img/logo_banner.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 47%;
+    background-position-x: center; } }
+
+header {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important; }
+
+footer {
+  background-color: #009BDA !important; }
+
+footer .mdl-logo {
+  border-right: #6e6e6e solid 2px;
+  padding: 0 20px; }
+
+.index-head {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.index-navigation {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -2; }
+
+.index-max-width {
+  max-width: 1600px;
+  width: calc(100% - 16px);
+  margin: 0 auto; }
+
+.index-content {
+  border-radius: 5px;
+  padding: 56px; }
+  .index-content h3 {
+    margin-top: 48px; }
+
+.mdl-layout__title {
+  margin-left: 15px;
+  font-size: 16pt;
+  text-align: center;
+  font-weight: 400;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.mdl-layout__drawer-button {
+  border-radius: 50%;
+  outline: none !important; }
+  .mdl-layout__drawer-button:active {
+    background-color: var(--mid-grey, #6e6e6e) !important; }
+
+.logo img {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: auto; }
+
+.portfolio-header .mdl-layout__header-row {
+  padding: 0;
+  justify-content: center; }
+
+.is-compact .mdl-layout__title span {
+  display: none; }
+
+.is-compact .portfolio-logo-row {
+  min-height: auto; }
+
+.is-compact .portfolio-logo {
+  height: 50px;
+  width: 50px;
+  margin-top: 7px; }
+
+.portfolio-navigation-row {
+  background-color: rgba(0, 0, 0, 0.08);
+  text-transform: uppercase;
+  height: 45px; }
+
+.portfolio-navigation-row .mdl-navigation {
+  text-align: center;
+  max-width: 900px;
+  width: 100%; }
+
+.portfolio-navigation-row .mdl-navigation__link {
+  flex: 1;
+  line-height: 42px; }
+
+.portfolio-header .mdl-layout__drawer-button {
+  background-color: rgba(197, 197, 197, 0.44); }
+
+.portfolio-navigation-row .is-active {
+  position: relative;
+  font-weight: bold; }
+
+.portfolio-navigation-row .is-active:after {
+  content: "";
+  width: 70%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #ff4081;
+  left: 15%; }
+
+.portfolio-card .mdl-card__title {
+  padding-bottom: 0; }
+
+.portfolio-blog-card-full-bg {
+  background: url("./img/example-blog03.jpg") center/cover; }
+
+.portfolio-blog-card-event-bg {
+  background: url("./img/example-blog05.jpg") center/cover; }
+
+.portfolio-blog-card-strip-bg {
+  background: url("./img/example-blog06.jpg") center/cover; }
+
+.portfolio-blog-card-compact .mdl-card__title {
+  padding-bottom: 0; }
+
+.portfolio-blog-card-bg > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2); }
+
+img.article-image {
+  width: 100%;
+  height: auto; }
+
+.portfolio-max-width {
+  max-width: 900px;
+  margin: auto; }
+
+.portfolio-copy {
+  max-width: 700px; }
+
+.no-padding {
+  padding: 0; }
+
+.no-left-padding {
+  padding-left: 0; }
+
+.no-bottom-padding {
+  padding-bottom: 0; }
+
+.padding-top {
+  padding: 10px 0 0; }
+
+.portfolio-share-btn {
+  position: relative;
+  float: right;
+  top: -4px; }
+
+.demo-card-event > .mdl-card__actions {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex; }
+
+.portfolio-contact .mdl-textfield {
+  width: 100%; }
+
+.portfolio-contact form {
+  max-width: 550px;
+  margin: auto; }
+
