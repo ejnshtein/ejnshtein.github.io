@@ -21,6 +21,7 @@ let yt = {
         key: urlParams('twk') || urlParams('twitchApiKey'),
         channel: urlParams('twc') || urlParams('twitchChannel'),
         allowSubs: !!urlParams('tws'),
+        id: '',
         subs: {
             array: [],
             history: []
@@ -42,19 +43,19 @@ let yt = {
         }
         return t
     }
-if (urlParams('th')){
-    document.querySelector('html').setAttribute('data-theme',urlParams('th'))
+if (urlParams('th')) {
+    document.querySelector('html').setAttribute('data-theme', urlParams('th'))
 }
-if (urlParams('dir')){
+if (urlParams('dir')) {
     let direction = {
-        vertical: urlParams('dir').replace(/([a-z]+)\/[a-z]+/ig,'$1'),
-        horizontal: urlParams('dir').replace(/[a-z]+\/([a-z]+)/ig,'$1')
+        vertical: urlParams('dir').replace(/([a-z]+)\/[a-z]+/ig, '$1'),
+        horizontal: urlParams('dir').replace(/[a-z]+\/([a-z]+)/ig, '$1')
     }
-    document.querySelector('html').setAttribute(`data-${direction.vertical}`,'')
-    document.querySelector('html').setAttribute(`data-${direction.horizontal}`,'')
+    document.querySelector('html').setAttribute(`data-${direction.vertical}`, '')
+    document.querySelector('html').setAttribute(`data-${direction.horizontal}`, '')
 } else {
-    document.querySelector('html').setAttribute('data-top','')
-    document.querySelector('html').setAttribute('data-left','')
+    document.querySelector('html').setAttribute('data-top', '')
+    document.querySelector('html').setAttribute('data-left', '')
 }
 //console.log(tw.allowSubs)
 switch (true) {
@@ -104,7 +105,7 @@ if (tw.key == 'example' && tw.channel == 'example') {
         length: 2
     }).toString())
 }
-if (yt.channel == 'example' && yt.key == 'example'){
+if (yt.channel == 'example' && yt.key == 'example') {
     setData('yt', randromText({
         onlyNumbers: true,
         length: 2
@@ -133,60 +134,58 @@ function subscriberYoutube() {
 
 function subscribersTwitch() {
     if (!tw.channel || !tw.key) return
-    if (tw.key == 'example' && tw.channel == 'example') {
-        return setData('tw', randromText({
-            length: 4,
-            onlyNumbers: true
-        }))
-    }
-    request({
-            url: `https://api.twitch.tv/helix/users?login=${tw.channel}`,
-            header: [{
-                name: 'Client-ID',
-                value: tw.key
-            }]
-        })
-        .then(res => {
-            if (res != undefined) {
+    if (tw.key == 'example' && tw.channel == 'example') return setData('tw', randromText({
+        length: 4,
+        onlyNumbers: true
+    }))
+    new Promise((res, rej) => {
+            if (!tw.id) {
                 request({
-                        url: `https://api.twitch.tv/helix/users/follows?to_id=${res.data[0].id}&`,
+                        url: `https://api.twitch.tv/helix/users?login=${tw.channel}`,
                         header: [{
                             name: 'Client-ID',
                             value: tw.key
                         }]
                     })
-                    .then(subs => {
-                        if (subs && subs.total) {
-                            setData('tw', subs.total)
-                        }
-                        if (tw.allowSubs) {
-                            let lastSubs = []
-                            // filter(sub => startTime < Date.parse(sub.followed_at))
-                            // filter(sub => {
-                            //     //console.log(startTime,startTime-30476269677, Date.parse(sub.followed_at))
-                            //     return startTime-30476269677 < Date.parse(sub.followed_at)
-                            // })
-                            subs.data.filter(sub => startTime < Date.parse(sub.followed_at)).forEach(sub => lastSubs.push(sub))
-                            //console.log(startTime,'lastsub:',lastSubs)
-                            lastSubs.forEach(sub => {
-                                if (!tw.subs.history.includes(sub.from_id)){
-                                    tw.subs.array.push(sub.from_id)
-                                    tw.subs.history.push(sub.from_id)
-                                }
-                            })
-                        }
+                    .then(data => {
+                        if (!data) return rej('Can\'t get twitch channel id from twitch API')
+                        tw.id = data.data[0].id
+                        res(tw.id)
                     })
-                    .catch(console.error)
+                    .catch(rej)
+            } else {
+                res(tw.id)
+            }
+        }).then(twId => request({
+            url: `https://api.twitch.tv/helix/users/follows?to_id=${twId}&`,
+            header: [{
+                name: 'Client-ID',
+                value: tw.key
+            }]
+        }))
+        .then(subs => {
+            if (subs && subs.total) {
+                setData('tw', subs.total)
+            }
+            if (tw.allowSubs) {
+                let lastSubs = []
+                subs.data.filter(sub => startTime < Date.parse(sub.followed_at)).forEach(sub => lastSubs.push(sub))
+                lastSubs.forEach(sub => {
+                    if (!tw.subs.history.includes(sub.from_id)) {
+                        tw.subs.array.push(sub.from_id)
+                        tw.subs.history.push(sub.from_id)
+                    }
+                })
             }
         })
         .catch(console.error)
 }
 subscriberYoutube()
 subscribersTwitch()
-setInterval(subscriberYoutube,5000)
-setInterval(subscribersTwitch,10000) // api limit
-setInterval(function(){
-    if (tw.subs.array.length > 0){
+setInterval(subscriberYoutube, 5000)
+setInterval(subscribersTwitch, 10000) // api limit
+setInterval(function () {
+    if (tw.subs.array.length > 0) {
         let newSub = tw.subs.array.shift()
         //console.log(newSub)
         request({
@@ -204,7 +203,7 @@ setInterval(function(){
             }).display()
         })
     }
-},7000)
+}, 7000)
 
 /**
  * @param {Object} opt 
